@@ -91,9 +91,6 @@
             case 'Sojourners Fellowship':
                 translatedMediaClassId = 'sssf';
                 break;
-            case 'Select':
-                translatedMediaClassId = 'Select';
-                break;
 
             default:
                 break;
