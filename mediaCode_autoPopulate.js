@@ -6,7 +6,7 @@
     //  code equivalent e.g. ss, cm, cc, etc.
     function translateMediaCategoryId() {
         var translatedMediaCategoryId = '';
-        var selectedMediaCategoryId = $('#field-category_id :selected').text();
+        var selectedMediaCategoryId = $('jform_category_id :selected').text();
         switch (selectedMediaCategoryId) {
             case 'Adult Sunday School':
                 translatedMediaCategoryId = 'ss';
@@ -58,7 +58,7 @@
     //  code equivalent e.g. ssgf, ss1s, etc.
     function translateMediaClassId() {
         var translatedMediaClassId = '';
-        var selectedMediaClassId = $('#field-class_id :selected').text();
+        var selectedMediaClassId = $('jform_class_id :selected').text();
 
         switch (selectedMediaClassId) {
             case '1st Service':
@@ -101,22 +101,22 @@
     //  This function updates the Media Code field with a new value, concatenated
     //  from Message Date, Message Time, Media Code and Sunday School Class
     function updateMediaCode() {
-        var mediaDate = moment(new Date($('#field-media_date').val())).format('YYMMDD');
+        var mediaDate = moment(new Date($('jform_media_date').val())).format('YYMMDD');
         mediaDate = (mediaDate === 'Invalid date') ? '' : mediaDate;
-        var mediaTime = $('#field-media_time :selected').text().toLowerCase().charAt(0);
+        var mediaTime = $('jform_media_time :selected').text().toLowerCase().charAt(0);
         var mediaCategory = translateMediaCategoryId();
         var mediaClass = translateMediaClassId();
         var updatedMediaCode = (mediaClass === '') ? mediaCategory + mediaDate + mediaTime : mediaClass + mediaDate + mediaTime;
-        $('#field-media_code').val(updatedMediaCode);
+        $('jform_media_code').val(updatedMediaCode);
     }
 
     //  Event binding to Message Date, Message Time, 
     //  Media Category and Sunday School Class fields.
     //  We will watch for any changes made to these fields
     //  and update the Media Code category
-    $('#field-media_date').on('change', updateMediaCode);
-    $('#field-media_time').on('change', updateMediaCode);
-    $('#field-category_id').on('change', updateMediaCode);
-    $('#field-class_id').on('change', updateMediaCode);
+    $('jform_media_date').on('change', updateMediaCode);
+    $('jform_media_time').on('change', updateMediaCode);
+    $('jform_category_id').on('change', updateMediaCode);
+    $('jform_class_id').on('change', updateMediaCode);
 
 })();
