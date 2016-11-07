@@ -101,7 +101,7 @@
     //  This function updates the Media Code field with a new value, concatenated
     //  from Message Date, Message Time, Media Code and Sunday School Class
     function updateMediaCode() {
-        var mediaDate = moment(new Date(jQuery('#jform_media_date').val())).format('YYMMDD');
+        var mediaDate = moment(jQuery('#jform_media_date').val()).format('YYMMDD');
         mediaDate = (mediaDate === 'Invalid date') ? '' : mediaDate;
         var mediaTime = jQuery('#jform_media_time :checked').val().toLowerCase().charAt(0);
         var mediaCategory = translateMediaCategoryId();
